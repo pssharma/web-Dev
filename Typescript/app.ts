@@ -75,4 +75,81 @@ console.log(multiply(2,5));
  myMultiply = sayHello;
  
 
+//objects
+let userData ={
+name :"Ps",
+age:27
+};
+
+/*userData={
+a: "Hello",
+b:22
+};*/ //will throw an error because userData obj has name and age not a and b
+
+//redeclare obj
+
+let userDat: {name: string, age: number} = {
+name:"ps",
+age:27
+} 
+
+
+//complex object (putting it all together)
+
+let complex: {data: number[], output: (all: boolean) => number[]} = {
+data: [100,3.99,10],
+
+output: function (all:boolean): number[]{
+return this.data;
+}
+};
+
+//creating complex types can be untidy
+//so we use alias, we create the type of the complex object so that it can be reused
+
+type Complex = {data:number[], output: (all:boolean) => number[]} ;
+
+let complex2: Complex = {
+data: [100,3.99,10],
+
+output: function (all:boolean): number[]{
+return this.data;
+}
+};
+
+
+
+//union types
+
+let myRealAge: number | string = 27;
+myRealAge = "27";
+
+//check types
+let finalValue = "A string";
+if(typeof finalValue == "string"){
+console.log(finalValue)
+}
+
+//never type, only used to mention something that never should be reached
+
+function neverReturns(): never{
+   throw new Error('An error');
+}
+
+//nullable values, the variables which are initialized to be other type can be assigned a value null
+
+let canBeNull = 12;
+//canBeNull = null;
+
+// add strictnullchecks to true on tsconfig to assign no null values to objects
+// can be overcome if its a union type
+
+let canBeNullToo: number | null = 12;
+canBeNullToo = null;
+
+
+
+
+
+
 

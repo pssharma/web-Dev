@@ -52,3 +52,52 @@ myMultiply = multiply;
 myMultiply(5, 6);
 myMultiply = sayHello;
 myMultiply();
+//assigning type to function
+var myMul;
+myMultiply = sayHello;
+//objects
+var userData = {
+    name: "Ps",
+    age: 27
+};
+/*userData={
+a: "Hello",
+b:22
+};*/ //will throw an error because userData obj has name and age not a and b
+//redeclare obj
+var userDat = {
+    name: "ps",
+    age: 27
+};
+//complex object (putting it all together)
+var complex = {
+    data: [100, 3.99, 10],
+    output: function (all) {
+        return this.data;
+    }
+};
+var complex2 = {
+    data: [100, 3.99, 10],
+    output: function (all) {
+        return this.data;
+    }
+};
+//union types
+var myRealAge = 27;
+myRealAge = "27";
+//check types
+var finalValue = "A string";
+if (typeof finalValue == "string") {
+    console.log(finalValue);
+}
+//never type, only used to mention something that never should be reached
+function neverReturns() {
+    throw new Error('An error');
+}
+//nullable values, the variables which are initialized to be other type can be assigned a value null
+var canBeNull = 12;
+//canBeNull = null;
+// add strictnullchecks to true on tsconfig to assign no null values to objects
+// can be overcome if its a union type
+var canBeNullToo = 12;
+canBeNullToo = null;
