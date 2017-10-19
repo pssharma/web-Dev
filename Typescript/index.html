@@ -3,7 +3,22 @@
 <meta charset="utf-8">
 <meta http=equiv="X-UA-Compatible" content="IE=edge">
 <title>Typescript</title>
-   <script src ="classes.js"></script>  
+   <script src ="node_modules/systemjs/dist/system.js"></script>  
+   <script>
+       //set the base url to reference path
+       SystemJS.config({
+           baseURL: '/',
+           packages:{
+               '/':{
+                   defaultJSExtensions: true
+               }
+           }
+        
+       });
+
+
+    SystemJS.import('/Interfaces/app.js');
+  </script>
 </head>
 <body>
    

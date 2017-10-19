@@ -35,7 +35,7 @@ var Male = /** @class */ (function (_super) {
     __extends(Male, _super);
     function Male(username) {
         var _this = _super.call(this, "PS", username) || this;
-        _this.name = "PS"; //will overwrite nam eproperty in person class
+        _this.name = "PS"; //will overwrite name property in person class
         _this.age = 34;
         return _this;
         //console.log(this.type); // wont work because private not accessible through sub classes
@@ -114,3 +114,22 @@ var newProject = new ITProject();
 console.log(newProject);
 newProject.changeName("SUPER Project");
 console.log(newProject);
+////////
+console.log("Private constructors and singletons");
+var OnlyOne = /** @class */ (function () {
+    function OnlyOne(name) {
+        this.name = name;
+    } //the constructor is private too so that it cant be instatianted. So we only have one instance of the class
+    //hence the name singleton
+    OnlyOne.getInstance = function () {
+        if (OnlyOne.instance) {
+            OnlyOne.instance = new OnlyOne('The only One');
+        }
+        return OnlyOne.instance;
+    };
+    return OnlyOne;
+}());
+//let wrong = new OnlyOne('The Only one');    // will throw error
+var right = OnlyOne.getInstance();
+console.log(right.name);
+right.name = 'Something';
