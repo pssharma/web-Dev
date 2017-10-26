@@ -8,9 +8,7 @@ request({
 },(error,response,body)=>{
     if(error){
         callback('Unable to connect to the google servers');
-        
-
-    }else if(body.status =='ZERO_RESULTS'){
+        }else if(body.status =='ZERO_RESULTS'){
         callback('Unable to handle the address');
        
     }else if(body.status =='OK'){
